@@ -39,7 +39,7 @@ mv /tmp/scripts-master/shell/arch/docker/*.sh /usr/local/bin/
 ####
 
 # define pacman packages
-pacman_packages="openssl-1.1 icu"
+pacman_packages="openssl-1.1 icu ca-certificates-mozilla"
 
 # install compiled packages using pacman
 if [[ ! -z "${pacman_packages}" ]]; then
@@ -50,13 +50,13 @@ fi
 # custom
 ####
 
-package_name="ca-certificates-mozilla.tar.zst"
+# package_name="ca-certificates-mozilla.tar.zst"
 
 # download compiled libtorrent-ps (used by rtorrent-ps)
-rcurl.sh -o "/tmp/${package_name}" "https://github.com/binhex/packages/raw/master/compiled/${TARGETARCH}/${package_name}"
+# rcurl.sh -o "/tmp/${package_name}" "https://github.com/binhex/packages/raw/master/compiled/${TARGETARCH}/${package_name}"
 
 # install libtorrent-ps
-pacman -U "/tmp/${package_name}" --noconfirm
+# pacman -U "/tmp/${package_name}" --noconfirm
 # /delme - required to fix up cert issues when compiling .dot
 
 # aur packages
